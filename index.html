@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple BlackJack</title>
+    <link rel="stylesheet" href="./style.css?cache=18">
+    <script src="index.js?cache=11"></script>
+  </head>
+  <body>
+  <div id="numDecks">
+      <label for="1">Number of Decks To use:</label>
+          <input id="1" type="number" value="" placeholder="6"><br>
+      <label for="2">Max Bet:</label>
+          <input id="2" type="number" value="" placeholder="250"><br>
+      <label for="3">Starting Balance:</label>
+          <input id="3" type="number" value="" placeholder="2500"><br>
+          <button type="button" onclick="startGame(this)">PLAY!</button>
+
+  </div>
+  <table id="main">
+	<tr>
+        <td id="discardO"><ul id="discard" onclick="logLastDeck()"><li id="dcard" class="dcard">&nbsp;</li></ul></td>
+        <td id="hand4O"><ul id="hand4"></ul></td>
+        <td id="dealer_tot"></td>
+        <td id="drawPileO"><ul id="drawPile"><li id="card" class="cardT">&nbsp;</li></ul></td>
+        </tr>
+        <tr>
+        <td class="filler"></td><td colspan="2" id="feedback">&nbsp;</td><td class="filler"></td>
+        </tr>
+        <tr>
+        <td id="bet0" class="bet"></td>
+        <td id="bet1" class="bet"></td>
+        <td id="bet2" class="bet"></td>
+        <td id="bet3" class="bet"></td>
+        </tr>
+        <tr>
+        <td id="hand0O" class="hand" onclick="updateBetText(this)" oncontextmenu="updateBetText(this,'-');return false;">
+          <ul id="hand0"></ul><ul id="split0" class="split"></ul><div class="bamnt">0</div>
+        </td>
+        <td id="hand1O" class="hand" onclick="updateBetText(this)" oncontextmenu="updateBetText(this,'-');return false;">
+          <ul id="hand1"></ul><ul id="split1" class="split"></ul><div class="bamnt">0</div>
+        </td>
+        <td id="hand2O" class="hand" onclick="updateBetText(this)" oncontextmenu="updateBetText(this,'-');return false;">
+          <ul id="hand2"></ul><ul id="split2" class="split"></ul><div class="bamnt">0</div>
+        </td>
+        <td id="hand3O" class="hand" onclick="updateBetText(this)" oncontextmenu="updateBetText(this,'-');return false;">
+          <ul id="hand3"></ul><ul id="split3" class="split"></ul><div class="bamnt">0</div>
+        </td>
+        </tr>
+        <tr>
+        <td colspan="4" id="playerBalanceRow" class="botRow"><a id="playerBalance">Balance: 2500</a>
+          <button type="button" name="bet_5" onclick="doBetStuff(5)">5</button>
+          <button type="button" name="bet_10" onclick="doBetStuff(10)">10</button>
+          <button type="button" name="bet_25" onclick="doBetStuff(25)">25</button>
+          <button type="button" name="bet_50" onclick="doBetStuff(50)">50</button>
+
+          <button id="hit" onclick="performAction('hit')">HIT</button>
+          <button id="stand" onclick="performAction('stand')">STAND</button>
+          <button id="double" onclick="performAction('double')">DOUBLE</button>
+          <button id="split" onclick="performAction('split')">SPLIT</button>
+        </td>
+        </tr>
+		<tr>
+		<td colspan="4"><a id="total_bet">Total Bet: 0</a></td>
+		</tr>
+        </table>
+  </body>
+</html>
+
+
